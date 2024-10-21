@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="./css/common.css" />
+  <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="./css/headroom.css" />
+  <link rel="stylesheet" type="text/css" href="./css/ContactForm.css" />
+  <link rel="stylesheet" type="text/css" href="./css/Header.css" />
+  <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+  <title>Contact Form</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Luca Ghiacci",
+      "url": "https://lucaghiacchi.github.io/portfolio/ContactForm.html",
+      "about": {
+        "@type": "Person",
+        "name": "Luca Ghiacci"
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <main class="contact-form main">
+    <header class="user-profile-section">
+      <div class="profile-display-section">
+        <div class="flex_row">
+          <nav class="profile-navigation-row" onclick="window.location.href='Portfolio.html'">
+            <img class="backicon" src="./assets/ed706c2930a03ecb6a184635d2b829aa.svg" alt="Back to main page" />
+            <h2 class="main-page-return-title">Back to main page</h2>
+          </nav>
+          <div class="profile-wrapper">
+            <h1 class="user-name">Luca Ghiacci</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="contact-me-section">
+      <div class="flex-column-layout">
+        <div class="flex-row-layout">
+          <div class="hero-title">
+            <h1 class="page-title" id="contactTitle">Contact me</h1>
+            <h2 class="intro-text" id="contactIntro">
+              Please fill out the form with your information to start a
+              conversation. Thank you!
+            </h2>
+            <div class="image-gallery">
+              <img class="gallery-image-1" src="./assets/cb00059291d8287d14b34f4c953cebac.svg" alt="Gallery Image 1" />
+              <img class="gallery-image-2 LinkedIn Profile Button" src="./assets/520cde308124c4d12e75f5d7e877fb48.svg"
+                alt="LinkedIn Profile Button"
+                onclick="window.open('https://www.linkedin.com/in/lucaghiacci/', '_self')" />
+              <img class="gallery-image-3 GitHub Profile Button" src="./assets/79f24139fa5af0773736608bc371e1b7.svg"
+                alt="GitHub Profile Button" onclick="window.open('https://github.com/ienais', '_self')" />
+            </div>
+          </div>
+
+          <div class="form-content">
+            <form id="contactForm" aria-label="Contact Form">
+              <div class="form-field-layout">
+                <label for="name" aria-required="true">Name <span aria-hidden="true">*</span></label>
+                <div class="content_box">
+                  <div contenteditable="true" data-placeholder="John" id="name" aria-labelledby="name-label"
+                    aria-required="true"></div>
+                </div>
+                <p class="nameError" id="nameError" aria-live="assertive"></p>
+              </div>
+
+              <div class="form-field-layout">
+                <label for="surname" aria-required="true">Surname <span aria-hidden="true">*</span></label>
+                <div class="surname-input-field">
+                  <div contenteditable="true" data-placeholder="Doe" id="surname" aria-labelledby="surname-label"
+                    aria-required="true"></div>
+                </div>
+                <p class="surnameError" id="surnameError" aria-live="assertive"></p>
+              </div>
+
+              <div class="form-field-layout">
+                <label for="email" aria-required="true">Email <span aria-hidden="true">*</span></label>
+                <div class="email-input-field">
+                  <div contenteditable="true" data-placeholder="example@xyz.com" id="email"
+                    aria-labelledby="email-label" aria-required="true"></div>
+                  <span class="valid-icon">✓</span>
+                </div>
+                <p class="emailError" id="emailError" aria-live="assertive"></p>
+              </div>
+
+              <div class="form-field-layout">
+                <label for="message" aria-required="true">Message <span aria-hidden="true">*</span></label>
+                <div class="message-input-container">
+                  <div contenteditable="true" data-placeholder="Write here your message..." id="message"
+                    aria-labelledby="message-label" aria-required="true"></div>
+                  <img class="image2" src="./assets/059c2539e3352c36fb5e4506cd02bafe.svg" alt="Image 2" />
+                </div>
+                <p class="messageError" id="messageError" aria-live="assertive"></p>
+              </div>
+
+              <button class="send-message-btn" id="sendButton" disabled>
+                <img class="send-button-icon" src="./assets/38ac78355f90b683d398447d4af6c351.svg" alt="Send message" />
+                <span class="send-button-text">Send message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="copyright-text">Made with love © 2024 Luca Ghiacci</div>
+      </div>
+    </section>
+
+    <!-- Success Message Modal -->
+    <div id="success-modal" style="
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #f9fafd;
+          padding: 20px;
+          border-radius: 16px;
+          box-shadow: 0 5px 11px 0 rgba(27, 60, 79, 0.1);
+        ">
+      <p>Thank you for your message. We will be in touch soon.</p>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+(() => {
+  console.log("Script is running");
+
+  const publicKey = "kjYYbkHZsw8OFvPNn";
+  const serviceId = "service_b9uk5zc"; // Assicurati che questo sia il tuo Service ID corretto
+  const templateId = "template_wu8wjbb"; // Assicurati che questo sia il tuo Template ID corretto
+
+  // Initialize EmailJS
+  emailjs.init(publicKey);
+
+  // Get the contact form element
+  const contactForm = document.getElementById("contactForm");
+  if (!contactForm) {
+    console.error("Contact form not found");
+    return;
+  }
+
+  // Get the send button element
+  const sendButton = document.getElementById("sendButton");
+  if (!sendButton) {
+    console.error("Send button not found");
+    return;
+  }
+
+  // Get all the contenteditable fields in the form
+  const editableFields = contactForm.querySelectorAll('[contenteditable="true"]');
+
+  function isValidEmail(email) {
+    const re = /^(([^<>()$$$$\\.,;:\s@"]+(\.[^<>()$$$$\\.,;:\s@"]+)*)|(".+"))@(($$[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  function isValidMessage(text) {
+    return text.trim().length >= 60;
+  }
+
+  function checkFormValidity() {
+    console.log("Checking form validity");
+    let isValid = true;
+
+    editableFields.forEach((field) => {
+      const errorElement = document.getElementById(`${field.id}Error`);
+      if (!errorElement) {
+        console.error(`Error element not found for ${field.id}`);
+        return;
+      }
+
+      const trimmedText = field.textContent.trim();
+
+      if (!trimmedText) {
+        isValid = false;
+        errorElement.textContent = "This field is required";
+        errorElement.style.display = "block";
+        console.log(`${field.id} is empty`);
+      } else if (field.id === "email" && !isValidEmail(trimmedText)) {
+        isValid = false;
+        errorElement.textContent = "Please enter a valid email address";
+        errorElement.style.display = "block";
+        console.log(`${field.id} is not a valid email`);
+      } else if (field.id === "message" && !isValidMessage(trimmedText)) {
+        isValid = false;
+        errorElement.textContent = "Message must be at least 60 characters long";
+        errorElement.style.display = "block";
+        console.log(`${field.id} is too short`);
+      } else {
+        errorElement.textContent = "";
+        errorElement.style.display = "none";
+      }
+    });
+
+    console.log("Form is valid:", isValid);
+    sendButton.disabled = !isValid;
+    sendButton.style.opacity = isValid ? "1" : "0.5"; // Aggiunge un feedback visivo
+    return isValid;
+  }
+
+  editableFields.forEach((fieldElement) => {
+    const initialText = fieldElement.dataset.placeholder;
+    fieldElement.textContent = initialText;
+
+    fieldElement.addEventListener("focus", () => {
+      if (fieldElement.textContent === initialText) {
+        fieldElement.textContent = "";
+      }
+    });
+
+    fieldElement.addEventListener("blur", () => {
+      if (!fieldElement.textContent.trim()) {
+        fieldElement.textContent = initialText;
+      }
+      checkFormValidity();
+    });
+
+    fieldElement.addEventListener("input", checkFormValidity);
+  });
+
+  sendButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("Send button clicked");
+
+    if (!checkFormValidity()) {
+      console.log("Form is not valid, cannot send");
+      return;
+    }
+
+    const formElements = {
+      name: document.getElementById("name"),
+      surname: document.getElementById("surname"),
+      email: document.getElementById("email"),
+      message: document.getElementById("message"),
+    };
+
+    const templateParams = Object.fromEntries(
+      Object.entries(formElements).map(([key, element]) => [key, element?.textContent.trim() ?? ""])
+    );
+
+    console.log("Sending email with params:", templateParams);
+
+    emailjs
+      .send(serviceId, templateId, templateParams) // Passa serviceId e templateId corretti
+      .then((response) => {
+        console.log("Email sent successfully");
+        showSuccessMessage();
+        Object.values(formElements).forEach((element) => {
+          if (element) element.textContent = element.dataset.placeholder ?? "";
+        });
+        checkFormValidity();
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Oops... Something went wrong. Please try again later.");
+      });
+  });
+
+  function showSuccessMessage() {
+    const modal = document.getElementById("success-modal");
+    if (modal) {
+      modal.style.display = "block";
+      console.log('Success message shown');
+      setTimeout(() => {
+        modal.style.display = "none";
+        console.log('Success message hidden');
+      }, 4000);
+    } else {
+      console.error('Success modal not found');
+    }
+  }
+
+  // Initial form validity check
+  checkFormValidity();
+})();
+  </script>
+</body>
+
+</html>
