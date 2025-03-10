@@ -11,6 +11,7 @@ nav{
   box-shadow: 3px 3px 5px #E6ECEE;
   position: sticky;
   top: 0;
+  z-index: 999;
   overflow: hidden;
 }
 nav ul{
